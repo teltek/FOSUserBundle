@@ -51,7 +51,7 @@ class UserListener implements EventSubscriber
     /**
      * Pre persist listener based on doctrine common.
      */
-    public function prePersist(LifecycleEventArgs $args)
+    public function prePersist(\Doctrine\ODM\MongoDB\Event\LifecycleEventArgs $args)
     {
         $object = $args->getObject();
         if ($object instanceof UserInterface) {
@@ -62,7 +62,7 @@ class UserListener implements EventSubscriber
     /**
      * Pre update listener based on doctrine common.
      */
-    public function preUpdate(LifecycleEventArgs $args)
+    public function preUpdate(\Doctrine\ODM\MongoDB\Event\LifecycleEventArgs $args)
     {
         $object = $args->getObject();
         if ($object instanceof UserInterface) {
