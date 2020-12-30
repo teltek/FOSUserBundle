@@ -11,8 +11,8 @@
 
 namespace FOS\UserBundle\Doctrine;
 
-use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\Persistence\ObjectRepository;
+use Doctrine\ODM\MongoDB\DocumentManager;
 use FOS\UserBundle\Model\UserInterface;
 use FOS\UserBundle\Model\UserManager as BaseUserManager;
 use FOS\UserBundle\Util\CanonicalFieldsUpdater;
@@ -21,7 +21,7 @@ use FOS\UserBundle\Util\PasswordUpdaterInterface;
 class UserManager extends BaseUserManager
 {
     /**
-     * @var ObjectManager
+     * @var DocumentManager
      */
     protected $objectManager;
 
@@ -35,7 +35,7 @@ class UserManager extends BaseUserManager
      *
      * @param string $class
      */
-    public function __construct(PasswordUpdaterInterface $passwordUpdater, CanonicalFieldsUpdater $canonicalFieldsUpdater, ObjectManager $om, $class)
+    public function __construct(PasswordUpdaterInterface $passwordUpdater, CanonicalFieldsUpdater $canonicalFieldsUpdater, DocumentManager $om, $class)
     {
         parent::__construct($passwordUpdater, $canonicalFieldsUpdater);
 

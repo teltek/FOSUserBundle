@@ -11,7 +11,7 @@
 
 namespace FOS\UserBundle\Doctrine;
 
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ODM\MongoDB\DocumentManager;
 use Doctrine\Common\Persistence\ObjectRepository;
 use FOS\UserBundle\Model\GroupInterface;
 use FOS\UserBundle\Model\GroupManager as BaseGroupManager;
@@ -19,7 +19,7 @@ use FOS\UserBundle\Model\GroupManager as BaseGroupManager;
 class GroupManager extends BaseGroupManager
 {
     /**
-     * @var ObjectManager
+     * @var DocumentManager
      */
     protected $objectManager;
 
@@ -38,7 +38,7 @@ class GroupManager extends BaseGroupManager
      *
      * @param string $class
      */
-    public function __construct(ObjectManager $om, $class)
+    public function __construct(DocumentManager $om, $class)
     {
         $this->objectManager = $om;
         $this->repository = $om->getRepository($class);
